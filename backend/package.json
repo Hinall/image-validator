@@ -19,6 +19,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "face-api.js": "^0.22.2",
     "heic-convert": "^2.1.0",
     "multer": "^2.2.0",
     "prisma": "^6.19.3",
