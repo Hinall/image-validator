@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "onnxruntime-node": "^1.16.0",
     "@prisma/client": "^6.19.3",
     "@vladmandic/face-api": "^1.7.15",
     "canvas": "^3.2.3",

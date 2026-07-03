@@ -17,11 +17,15 @@ export const loadFaceModels = async () => {
 
   const modelPath = path.join(process.cwd(), "models");
 
-  await faceapi.nets.ssdMobilenetv1.loadFromDisk(modelPath);
+  await Promise.all([
+    faceapi.nets.ssdMobilenetv1.loadFromDisk(modelPath),
+    faceapi.nets.faceLandmark68Net.loadFromDisk(modelPath),
+    faceapi.nets.faceRecognitionNet.loadFromDisk(modelPath),
+  ]);
 
   modelLoaded = true;
 
-  console.log("✅ Face detection model loaded");
+  console.log("✅ Face detection & recognition models loaded");
 };
 
 export const detectFaces = async (buffer) => {

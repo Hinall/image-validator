@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import prisma from "./lib/prisma.js";
 import imageRoutes from "../routes/image.routes.js";
 import { loadFaceModels } from "../services/face.service.js";
+import { loadEmbeddingModel } from "../services/embedding.service.js";
 dotenv.config();
 
 const app = express();
@@ -35,6 +36,10 @@ app.get("/test-db", async (req, res) => {
 });
 app.use("/api/images", imageRoutes);
 await loadFaceModels();
+await Promise.all([
+  loadFaceModels(),
+  loadEmbeddingModel(),
+]);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

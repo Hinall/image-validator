@@ -10,7 +10,7 @@ const router = express.Router();
 router.post(
   "/",
   (req, res, next) => {
-    upload.single("image")(req, res, (err) => {
+    upload.array("images", 100)(req, res, (err) => {
       if (err) {
         return res.status(400).json({
           success: false,

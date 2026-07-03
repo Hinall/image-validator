@@ -1,7 +1,7 @@
 import sharp from "sharp";
 
 const DEFAULT_SIZE = 500;
-const BLUR_THRESHOLD = 50;
+const BLUR_THRESHOLD = 20;
 
 export const detectProfileBlur = async (imageBuffer) => {
   try {
